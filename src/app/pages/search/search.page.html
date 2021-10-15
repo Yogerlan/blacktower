@@ -1,0 +1,40 @@
+<app-header title="Search"></app-header>
+
+<ion-content class="ion-padding">
+  <ion-segment value="people" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="people">
+      <ion-label>People</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="jobs">
+      <ion-label>Jobs</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ng-container *ngIf="segment === 'people'; then peopleTemplate else jobsTemplate"></ng-container>
+  <ng-template #peopleTemplate>
+    <ion-list *ngFor="let person of people">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img [src]="person.picture" />
+        </ion-avatar>
+        <ion-label>
+          {{ person.name }}
+          <p>{{ person.professionalHeadline }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-template>
+  <ng-template #jobsTemplate>
+    <ion-list *ngFor="let job of jobs">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img [src]="job.organizations[0].picture" />
+        </ion-avatar>
+        <ion-label>
+          {{ job.objective }}
+          <p>{{ job.tagline }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-template>
+</ion-content>
