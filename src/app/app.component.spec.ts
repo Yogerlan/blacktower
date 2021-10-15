@@ -1,6 +1,8 @@
+// Angular imports
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 
+// Local imports
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {

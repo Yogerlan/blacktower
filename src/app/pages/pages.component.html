@@ -1,0 +1,17 @@
+<ion-menu contentId="page-content" side="start" (click)="toggleMenu()">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Main Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item [routerLink]="['/dashboard']" routerLinkActive="router-link-active">
+        <ion-icon name="bar-chart" slot="start"></ion-icon>
+        <ion-label>Dashboard</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="page-content"></ion-router-outlet>
