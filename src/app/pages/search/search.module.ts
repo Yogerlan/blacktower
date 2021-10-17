@@ -10,6 +10,7 @@ import { ComponentsModule } from '../../components/components.module';
 import { SearchPage } from './search.page';
 import { SearchPageRoutingModule } from './search-routing.module';
 import { PersonPageModule } from '../person/person.module';
+import { JobPageModule } from '../job/job.module';
 
 @NgModule({
   declarations: [SearchPage],
@@ -18,7 +19,8 @@ import { PersonPageModule } from '../person/person.module';
     IonicModule,
     ComponentsModule,
     SearchPageRoutingModule,
-    PersonPageModule
+    PersonPageModule,
+    JobPageModule
   ]
 })
 export class SearchPageModule { }
