@@ -28,16 +28,20 @@ export class TorreService {
   getPerson(username: string) {
     return new Promise(resolve => {
       const endpoint = `https://torre.bio/api/bios/${username}`;
-      this.http.get(endpoint)
-        .subscribe(data => resolve(data), error => resolve(null));
+      fetch(endpoint)
+        .then(response => response.json())
+        .then(data => resolve(data))
+        .catch(reason => resolve(null));
     });
   }
 
   getJob(id: string) {
     return new Promise(resolve => {
       const endpoint = `https://torre.co/api/suite/opportunities/${id}`;
-      this.http.get(endpoint)
-        .subscribe(data => resolve(data), error => resolve(null));
+      fetch(endpoint)
+        .then(response => response.json())
+        .then(data => resolve(data))
+        .catch(reason => resolve(null));
     });
   }
 
