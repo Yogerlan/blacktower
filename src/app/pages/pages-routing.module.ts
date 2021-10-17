@@ -18,6 +18,14 @@ const routes: Routes = [
         path: 'search',
         loadChildren: () => import('./search/search.module').then(m => m.SearchPageModule)
       },
+      // {
+      //   path: 'person',
+      //   loadChildren: () => import('./person/person.module').then( m => m.PersonPageModule)
+      // },
+      // {
+      //   path: 'job',
+      //   loadChildren: () => import('./job/job.module').then( m => m.JobPageModule)
+      // },
       {
         path: '',
         redirectTo: 'dashboard',

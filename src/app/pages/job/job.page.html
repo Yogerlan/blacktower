@@ -1,0 +1,34 @@
+<div class="ion-page">
+  <ion-content>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="danger" (click)="onDismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-card>
+      <ion-card-header>
+        <ion-row>
+          <ion-col size="3">
+            <ion-avatar>
+              <ion-img [src]="job.organizations[0].picture"></ion-img>
+            </ion-avatar>
+          </ion-col>
+          <ion-col size="9">
+            <ion-card-title>{{ job.objective }}</ion-card-title>
+            <ion-card-subtitle>{{ job.organizations[0].name }}</ion-card-subtitle>
+            <p>{{ job.tagline }}</p>
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Compensation</ion-card-title>
+        <ion-card-subtitle>People compensation comparative</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content id="compensationChartContainer">
+        <canvas id="compensationChart"></canvas>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</div>

@@ -10,31 +10,43 @@
     </ion-segment-button>
   </ion-segment>
 
-  <ng-container *ngIf="segment === 'people'; then peopleTemplate else jobsTemplate"></ng-container>
-  <ng-template #peopleTemplate>
-    <ion-list *ngFor="let person of people">
-      <ion-item>
-        <ion-avatar slot="start">
-          <img [src]="person.picture" />
-        </ion-avatar>
-        <ion-label>
-          {{ person.name }}
-          <p>{{ person.professionalHeadline }}</p>
-        </ion-label>
-      </ion-item>
-    </ion-list>
-  </ng-template>
-  <ng-template #jobsTemplate>
-    <ion-list *ngFor="let job of jobs">
-      <ion-item>
-        <ion-avatar slot="start">
-          <img [src]="job.organizations[0].picture" />
-        </ion-avatar>
-        <ion-label>
-          {{ job.objective }}
-          <p>{{ job.tagline }}</p>
-        </ion-label>
-      </ion-item>
-    </ion-list>
-  </ng-template>
+  <ion-list>
+    <ion-item *ngFor="let person of people.results" [style.display]="segment === 'people' ? 'block' : 'none'" (click)="showPerson(person.username)">
+      <ion-avatar slot="start">
+        <ion-img [src]="person.picture"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        {{ person.name }}
+        <p>{{ person.professionalHeadline }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item *ngFor="let job of jobs.results" [style.display]="segment === 'jobs' ? 'block' : 'none'" (click)="showJob(job.id)">
+      <ion-avatar slot="start">
+        <ion-img [src]="job.organizations[0].picture"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        {{ job.objective }}
+        <p>{{ job.tagline }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [disabled]="disablePrevious()" (click)="onPrevious()">
+        <ion-icon name="chevron-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="custom-title">{{ pageInfo() }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [disabled]="disableNext()" (click)="onNext()">
+        <ion-icon name="chevron-forward"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
