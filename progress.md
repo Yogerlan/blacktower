@@ -12,3 +12,8 @@
 - [x] Add some job charts.
 # Dashboard
 - [x] Implement dashboard page.
+# Issues
+- [x] Fix CORS issues.
+- [ ] Fix CORB issues.
+# Theming
+- [ ] Implement dark theme.
